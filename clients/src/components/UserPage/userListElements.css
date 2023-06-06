@@ -1,0 +1,39 @@
+.tableuser .headeruserlist{
+    flex-direction:column;
+    padding-left:25px;
+    
+}
+.ant-table-content{
+    width:175vh;
+}
+.tableuser .headeruserlist .buttons{
+    padding:20px;
+    display:flex;
+    justify-content:center;
+}
+@media only screen and (max-width: 900px) {
+    .tableuser .headeruserlist {
+      padding-left:50px;
+      padding-top:40px;
+    }
+  }
+
+@media only screen and (max-width: 600px) {
+    .tableuser .headeruserlist {
+      padding-left:0px;
+      padding-top:40px;
+    }
+  }
+  @media only screen and (max-width: 900px){
+    .ant-table-content{
+        width: 85vh;
+    }
+  }
+
+ 
+
+  .tableuser .tables{
+    border:solid;
+    border-width: thin;
+    border-color: #d9d9d9;
+  }

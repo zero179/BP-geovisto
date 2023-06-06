@@ -1,9 +1,7 @@
-CREATE DATABASE jwtauth;
-
-CREATE TABLE users(
-  user_id uuid DEFAULT uuid_generate_v4(),
-  user_name VARCHAR(255) NOT NULL,
-  user_email VARCHAR(255) NOT NULL UNIQUE,
-  user_password VARCHAR(255) NOT NULL,
-  PRIMARY KEY(user_id)
+-- users table 
+create table users(
+  user_id serial primary key,
+  email varchar(255) unique not null,
+  password varchar(255) not null,
+  created_at date default current_date
 );

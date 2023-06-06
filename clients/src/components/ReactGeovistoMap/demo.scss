@@ -1,0 +1,32 @@
+.demo-container {
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.demo-toolbar {
+  padding: 10px;
+
+  input[type="file"] {
+    color: rgb(153, 153, 153);
+    vertical-align: middle;
+  }
+}
+
+.demo-map {
+  height: 85vh;
+  width: 80vw;
+}
+
+.demo {
+  display: flex;
+  margin-bottom: 100px;
+}
+
+.code {
+  width: 400px;
+  max-height: 85vh;
+  overflow-y: auto;
+}

@@ -1,0 +1,264 @@
+{
+	"zoom": 2,
+	"center": {
+		"lat": 50.064191736659104,
+		"lng": 0
+	},
+	"tools": [
+		{
+			"type": "geovisto-tool-sidebar",
+			"id": "geovisto-tool-sidebar",
+			"enabled": true,
+			"tabs": [
+				{
+					"enabled": true,
+					"name": "General settings",
+					"icon": "<i class=\"fa fa-gear\"></i>",
+					"checkButton": false,
+					"fragments": [
+						{
+							"tool": "geovisto-tool-themes",
+							"enabled": true
+						},
+						{
+							"tool": "geovisto-tool-selection",
+							"enabled": true
+						}
+					]
+				},
+				{
+					"tool": "geovisto-tool-filters",
+					"enabled": true,
+					"name": "Filters",
+					"icon": "<i class=\"fa fa-filter\"></i>",
+					"checkButton": true
+				},
+				{
+					"tool": "geovisto-tool-info",
+					"enabled": true,
+					"name": "Info",
+					"icon": "<i class=\"fa fa-info\"></i>",
+					"checkButton": false
+				},
+				{
+					"tool": "geovisto-tool-layer-map",
+					"enabled": true,
+					"name": "Map layer settings",
+					"icon": "<i class=\"fa fa-globe\"></i>",
+					"checkButton": true
+				},
+				{
+					"tool": "geovisto-tool-layer-choropleth",
+					"enabled": true,
+					"name": "Choropleth layer settings",
+					"icon": "<i class=\"fa fa-th-large\"></i>",
+					"checkButton": true
+				},
+				{
+					"tool": "geovisto-tool-layer-marker",
+					"enabled": true,
+					"name": "Marker layer settings",
+					"icon": "<i class=\"fa fa-map-marker\"></i>",
+					"checkButton": true
+				},
+				{
+					"tool": "geovisto-tool-layer-connection",
+					"enabled": true,
+					"name": "Connection layer settings",
+					"icon": "<i class=\"fa fa-road\"></i>",
+					"checkButton": true
+				},
+				{
+					"tool": "geovisto-tool-layer-heat",
+					"enabled": true,
+					"name": "Heat layer settings",
+					"icon": "<i class=\"fa fa-fire\"></i>",
+					"checkButton": true
+				},
+				{
+					"tool": "geovisto-tool-layer-dot",
+					"enabled": true,
+					"name": "Dot layer settings",
+					"icon": "<i class=\"fa fa-dot-circle-o\"></i>",
+					"checkButton": true
+				},
+				{
+					"tool": "geovisto-tool-layer-timeline",
+					"enabled": true,
+					"name": "Timeline",
+					"icon": "<i class=\"fa fa-clock-o\" />",
+					"checkButton": true
+				},
+				{
+					"tool": "geovisto-tool-layer-drawing",
+					"enabled": true,
+					"name": "GeoJSON creator",
+					"icon": "<i class=\"fa fa-pencil\"></i>",
+					"checkButton": true
+				},
+				{
+					"tool": "geovisto-tool-layer-spike",
+					"enabled": true,
+					"name": "Spike layer setting",
+					"icon": "<i class=\"fa fa-arrow-up\"></i>",
+					"checkButton": true
+				},
+				{
+					"tool": "geovisto-tool-layer-bubble",
+					"enabled": true,
+					"name": "Bubble layer settings",
+					"icon": "<i class=\"fa fa-pie-chart\"></i>",
+					"checkButton": true
+				}
+			]
+		},
+		{
+			"type": "geovisto-tool-settings",
+			"id": "geovisto-tool-settings",
+			"enabled": true
+		},
+		{
+			"type": "geovisto-tool-filters",
+			"id": "geovisto-tool-filters",
+			"enabled": true,
+			"filterRules": []
+		},
+		{
+			"type": "geovisto-tool-themes",
+			"id": "geovisto-tool-themes",
+			"enabled": true,
+			"theme": "light1"
+		},
+		{
+			"type": "geovisto-tool-selection",
+			"id": "geovisto-tool-selection",
+			"enabled": true
+		},
+		{
+			"type": "geovisto-tool-legend",
+			"id": "geovisto-tool-legend",
+			"enabled": true,
+			"tools": ["geovisto-tool-layer-choropleth", "geovisto-tool-layer-marker"]
+		},
+		{
+			"type": "geovisto-tool-layer-map",
+			"id": "geovisto-tool-layer-map",
+			"enabled": true,
+			"layerName": "Map layer"
+		},
+		{
+			"type": "geovisto-tool-layer-choropleth",
+			"id": "geovisto-tool-layer-choropleth",
+			"enabled": true,
+			"layerName": "Choropleth layer",
+			"data": {
+				"country": "",
+				"value": "",
+				"aggregation": "",
+				"scaling": "median",
+				"range": 7,
+				"customColor": true,
+				"color": "#e32400",
+				"units": "$",
+				"unitsDesc": "US Dollars",
+				"round": 1
+			}
+		},
+		{
+			"type": "geovisto-tool-layer-marker",
+			"id": "geovisto-tool-layer-marker",
+			"enabled": true,
+			"layerName": "Marker layer",
+			"data": {
+				"country": "",
+				"value": "",
+				"aggregation": "",
+				"category": "",
+				"units": "$",
+				"unitsDesc": "US Dollars"
+			}
+		},
+		{
+			"type": "geovisto-tool-layer-connection",
+			"id": "geovisto-tool-layer-connection",
+			"enabled": true,
+			"layerName": "Connection layer",
+			"data": {
+				"from": "",
+				"to": "",
+				"animateDirection": false
+			}
+		},
+		{
+			"type": "geovisto-tool-layer-heat",
+			"id": "geovisto-tool-layer-heat",
+			"enabled": true,
+			"layerName": "Heat layer",
+			"data": {
+				"latitude": "lat",
+				"longitude": "long",
+				"radius": 10,
+				"intensity": "cases",
+				"gradient": "",
+				"blur": 10,
+				"zoom": "",
+				"operation": ""
+			}
+		},
+		{
+			"type": "geovisto-tool-layer-dot",
+			"id": "geovisto-tool-layer-dot",
+			"enabled": true,
+			"layerName": "Dot layer",
+			"data": {
+				"latitude": "lat",
+				"longitude": "lng",
+				"category": "city"
+			}
+		},
+		{
+			"type": "geovisto-tool-layer-timeline",
+			"id": "geovisto-tool-layer-timeline",
+			"enabled": true,
+			"layerName": "Timeline",
+			"data": {
+				"timePath": "date",
+				"stepTimeLength": 30,
+				"transitionDuration": 2500,
+				"story": "",
+				"granularity": "",
+				"chartValuePath": "",
+				"chartAggregationFn": ""
+			},
+			"stories": []
+		},
+		{
+			"type": "geovisto-tool-layer-drawing",
+			"id": "geovisto-tool-layer-drawing",
+			"enabled": false,
+			"layerName": "GeoJSON creator"
+		},
+		{
+			"type": "geovisto-tool-layer-spike",
+			"id": "geovisto-tool-layer-spike",
+			"enabled": true,
+			"layerName": "Spike layer",
+			"data": {
+				"latitude": "lat",
+				"longitude": "long",
+				"value": "data.value"
+			}
+		},
+		{
+			"type": "geovisto-tool-layer-bubble",
+			"id": "geovisto-tool-layer-bubble",
+			"enabled": true,
+			"layerName": "Buble layer",
+			"data": {
+				"latitude": "lat",
+				"longitude": "long",
+				"value": "data.value"
+			}
+		}
+	]
+}

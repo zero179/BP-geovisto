@@ -1,0 +1,173 @@
+{
+    "mapCenter": {
+        "lat": 50.0,
+        "lng": 10.0
+    },
+    "tools": [
+      {
+        "type": "geovisto-tool-sidebar",
+        "id": "geovisto-tool-sidebar",
+        "enabled": true,
+        "tabs": [
+          {
+            "tool": "geovisto-tool-layer-map",
+            "enabled": true,
+            "name": "Map layer settings",
+            "icon": "<i class=\"fa fa-globe\"></i>",
+            "checkButton": true
+          },
+          {
+            "tool": "geovisto-tool-layer-connection",
+            "enabled": true,
+            "name": "Connection layer settings",
+            "icon": "<i class=\"fa fa-road\"></i>",
+            "checkButton": true
+          },
+          {
+            "tool": "geovisto-tool-hierarchy",
+            "enabled": true,
+            "name": "Hierarchy tool",
+            "icon": "<i class=\"fa fa-database\"></i>",
+            "checkButton": true
+          }
+        ]
+      },
+      {
+        "type": "geovisto-tool-settings",
+        "id": "geovisto-tool-settings",
+        "enabled": true
+      },
+      {
+        "type": "geovisto-tool-themes",
+        "id": "geovisto-tool-themes",
+        "enabled": true
+      },
+      {
+        "type": "geovisto-tool-layer-map",
+        "id": "geovisto-tool-layer-map",
+        "enabled": true,
+        "layerName": "Map layer"
+      },
+      {
+        "type": "geovisto-tool-hierarchy",
+        "id": "geovisto-tool-hierarchy",
+        "enabled": true,
+        "layerName": "Hierarchy layer",
+        "hierarchies": [{
+          "name" : "Hierarchy Connection",
+          "aggregation" : true,
+              "hierarchy": [
+                {
+                    "id": "high_1",
+                    "parent": "",
+                    "zoomLevel": 3
+                },
+                {
+                    "id": "high_2",
+                    "parent": "",
+                    "zoomLevel": 3
+                },
+                {
+                    "id": "high_3",
+                    "parent": "",
+                    "zoomLevel": 3
+                },
+                {
+                    "id": "low_1",
+                    "parent": "high_1",
+                    "zoomLevel": 10
+                },
+                {
+                    "id": "low_2",
+                    "parent": "high_1",
+                    "zoomLevel": 10
+                },
+                {
+                    "id": "low_3",
+                    "parent": "high_1",
+                    "zoomLevel": 10
+                },
+                {
+                    "id": "low_4",
+                    "parent": "high_1",
+                    "zoomLevel": 10
+                },
+                {
+                    "id": "low_5",
+                    "parent": "high_1",
+                    "zoomLevel": 10
+                },
+                {
+                    "id": "low_6",
+                    "parent": "high_2",
+                    "zoomLevel": 10
+                },
+                {
+                    "id": "low_7",
+                    "parent": "high_2",
+                    "zoomLevel": 10
+                },
+                {
+                    "id": "low_8",
+                    "parent": "high_2",
+                    "zoomLevel": 10
+                },
+                {
+                    "id": "low_9",
+                    "parent": "high_2",
+                    "zoomLevel": 10
+                },
+                {
+                    "id": "low_10",
+                    "parent": "high_2",
+                    "zoomLevel": 10
+                },
+                {
+                    "id": "low_11",
+                    "parent": "high_3",
+                    "zoomLevel": 10
+                },
+                {
+                    "id": "low_12",
+                    "parent": "high_3",
+                    "zoomLevel": 10
+                },
+                {
+                    "id": "low_13",
+                    "parent": "high_3",
+                    "zoomLevel": 10
+                },
+                {
+                    "id": "low_14",
+                    "parent": "high_3",
+                    "zoomLevel": 10
+                },
+                {
+                    "id": "low_15",
+                    "parent": "high_3",
+                    "zoomLevel": 10
+                }
+              ]
+          }
+      ]
+      },
+      {
+        "type": "geovisto-tool-layer-connection",
+        "id": "geovisto-tool-layer-connection",
+        "enabled": true,
+        "layerName": "Connection layer",
+        "data": {
+          "from": "From",
+          "to": "To",
+          "geoData":"Hierarchy Connection",
+          "animateDirection": false
+        }
+      },
+      {
+          "type": "geovisto-tool-layer-drawing",
+          "id": "geovisto-tool-layer-drawing",
+          "enabled": false,
+          "layerName": "GeoJSON creator"
+      }
+    ]
+  }
