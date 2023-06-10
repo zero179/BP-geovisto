@@ -1,25 +1,11 @@
 import React from 'react';
-import { Menu, Grid, Avatar,Dropdown, message, Space} from 'antd';
+import { Menu, Grid, Avatar,Dropdown} from 'antd';
 import { UserOutlined,PoweroffOutlined,SettingOutlined } from '@ant-design/icons';
-import { makeStyles } from '@mui/styles';
-import { withStyles, createStyles } from "@material-ui/core/styles";
 import {Link} from 'react-router-dom';
 
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
 const { useBreakpoint } = Grid;
 
 
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    large: {
-      fontSize: "2.5rem",
-      width: 100,
-      height: 100
-    }
-  })
-);
 
 function randomColor() {
   let hex = Math.floor(Math.random() * 0xFFFFFF);
