@@ -112,17 +112,21 @@ export class Demo extends Component {
       console.log("Map or map's 'm' property not found.");
     }
   }
+
+
   getGeoJsonFromProps = () => {
     //console.log(this.props, "data su tu");
     const geojson = JSON.parse(this.props.mojeData);
+    console.log("hello", geojson, this.map.current.m.getState().getTools().getById("geovisto-tool-layer-drawing"));
+
+    this.map.current.m.getState().getTools().getById("geovisto-tool-layer-drawing").getState().deserializeGeoJSON(geojson);
 
   
     // Serialize the GeoJSON to a string
-    const geoJSONString = JSON.stringify(geojson, null, 4) || '';
 
-    this.setState({ geoJSONString }, () => {
+    /*this.setState({ geoJSONString }, () => {
       this.getMapFromGeojson();
-    });
+    });*/
     // // Update the state with the GeoJSON string
     // this.setState({ geoJSONString });
       
