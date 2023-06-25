@@ -365,7 +365,10 @@ class DrawingLayerToolState
    */
   public deserializeGeoJSON(geojson: ExportGeoJSON): void {
     const sidebarState = this.tool.getMapForm().getState();
-    // console.log({ geojson });
+     console.log({ geojson });
+     console.log("hello world");
+     console.log("prve");
+    console.log("simon");
     if (geojson.type === "FeatureCollection" && geojson.features) {
       geojson.features
         .sort((a, b) =>
@@ -417,7 +420,9 @@ class DrawingLayerToolState
               result,
               f.properties as Source
             );
+            console.log("Result before adding layer:", result);
             this.addLayer(result);
+            console.log("Layer added:", result);
           }
         });
     }

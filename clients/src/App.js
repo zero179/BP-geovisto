@@ -21,14 +21,14 @@ import Admin from './pages/Admin';
 
 const PrivateRoutes = () => {
   const { isAuth } = useSelector((state) => state.auth)
-
+  
   return <>{isAuth ? <Outlet /> : <Navigate to='/login' />}</>
 }
 
 const RestrictedRoutes = () => {
   const { isAuth } = useSelector((state) => state.auth)
-
-  return <>{!isAuth ? <Outlet /> : <Navigate to='/dashboard' />}</>
+  return <>{!isAuth ? <Outlet/>  : <Navigate to='/user'/> }</>
+  
 }
 
 const App = () => {
@@ -41,6 +41,7 @@ const App = () => {
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/user/geojsons' element={<UserGeoJsonList />} />
           <Route path="/user" element={<User />} />
+          <Route path="/admin" element={<User />} />
         </Route>
 
         <Route element={<RestrictedRoutes />}>

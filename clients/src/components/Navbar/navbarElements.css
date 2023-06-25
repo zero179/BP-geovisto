@@ -1,21 +1,46 @@
+.menuBar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
 
-.menuBar .logo a{
-    font-size: 14px;
-    color:#555;
-    font-weight:bold;
-    text-decoration:none;
+.menuBar .logo a {
+	font-size: 14px;
+	color: #555;
+	font-weight: bold;
+	text-decoration: none;
 }
-.menuBar .logo a:hover{
-    transition: all 0.2s ease-in-out;
-    color: #01bf71;
+
+.menuBar .logo a:hover {
+	transition: all 0.2s ease-in-out;
+	color: #01bf71;
 }
-.menuBar .menuCon{
-    font-size: 14px;
-    color:#555;
-    font-weight:bold;
-    text-decoration:none;
+
+.menuBar .menuCon {
+	font-size: 14px;
+	color: #555;
+	font-weight: bold;
+	text-decoration: none;
 }
-.menuBar .menuCon a:hover{
-    transition: all 0.2s ease-in-out;
-    color: #01bf71;
+
+.menuBar .menuCon a:hover {
+	transition: all 0.2s ease-in-out;
+	color: #01bf71;
+}
+
+.menuItems {
+	display: flex;
+	align-items: center;
+}
+
+.leftMenu {
+	margin-right: 10px;
+}
+
+.rightMenu {
+	margin-left: 10px;
+}
+
+.barsMenu {
+	display: none; /* Hide the button for larger screens if desired */
 }

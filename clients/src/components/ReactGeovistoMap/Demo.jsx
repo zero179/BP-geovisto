@@ -33,6 +33,7 @@ export class Demo extends Component {
     this.infodata2 = require("../../static/info/test2.md")
 
     this.state = {
+      data: require('../../static/data/covidCzechDistrictsCategoric.json'),
       geoJSONString: "",
       config: require("../../static/config/config.json"),
     }
@@ -41,47 +42,7 @@ export class Demo extends Component {
     this.getGeoJsonFromProps = this.getGeoJsonFromProps.bind(this);
   }
 
-  getMapFromGeojson() {
-    //Get the GeoJSON object
-    /*
-    if (this.map.current) {
-      console.log(this.map.current, "aaaa"); // Add this line to check the object in the console
-    }
-    const geojson = JSON.parse(this.state.geoJSONString);
-    //console.log("tu je json", geojson)
-    // odkrokovat si
-    //console.log(this.map.current,"mmmmmm")
-    // Deserialize the GeoJSON and update the map state
-    const drawingTool = this.map.current.m.getState().getTools().getById("geovisto-tool-layer-drawing");
-    drawingTool.getState().deserializeGeoJSON(geojson);
-    */
-   // Get the GeoJSON object
-   if (this.map.current.m) {
-    console.log(this.map.current.m, "aaaa"); // Add this line to check the object in the console
-  }
-  
-  const geojson = JSON.parse(this.state.geoJSONString);
-  console.log("GeoJSON:", geojson); // Log the GeoJSON object
-  
-  if (this.map.current && this.map.current.m) {
-    const drawingTool = this.map.current.m.getState().getTools().getById("geovisto-tool-layer-drawing");
-    console.log("Drawing tool:", drawingTool); // Log the drawing tool object
-    
-    if (drawingTool) {
-      drawingTool.getState().deserializeGeoJSON(geojson);
-    } else {
-      console.log("Drawing tool not found.");
-    }
-  } else {
-    console.log("Map or map's 'm' property not found.");
-  }
 
-    // Get the map object
-    //const map = drawingTool.getMap();
-    //console.log("tu je mapa", map)
-
- 
-  }
 
   getGeoJson() {
     // if (this.map.current && this.map.current.m) {
@@ -96,21 +57,28 @@ export class Demo extends Component {
     //   //console.log("FAIL")
     //   return ""
     // }
+
+
+
+
     if (this.map.current && this.map.current.m) {
       const drawingTool = this.map.current.m.getState().getTools().getById("geovisto-tool-layer-drawing");
       if (drawingTool) {
         const geoJSON = drawingTool.getState().serializeToGeoJSON();
         const geoJSONString = JSON.stringify(geoJSON, null, 4) ?? '';
-  
+
         console.log("GeoJSON:", geoJSONString); // Log the GeoJSON string
-  
-        this.setState({ geoJSONString });
+
+        if (this.copyBlockRef.current) {
+          this.copyBlockRef.current.textContent = geoJSONString;
+        }
       } else {
         console.log("Drawing tool not found.");
       }
     } else {
       console.log("Map or map's 'm' property not found.");
     }
+
   }
 
 
@@ -119,7 +87,8 @@ export class Demo extends Component {
     const geojson = JSON.parse(this.props.mojeData);
     console.log("hello", geojson, this.map.current.m.getState().getTools().getById("geovisto-tool-layer-drawing"));
 
-    this.map.current.m.getState().getTools().getById("geovisto-tool-layer-drawing").getState().deserializeGeoJSON(geojson);
+    const state = this.map.current.m.getState().getTools().getById("geovisto-tool-layer-drawing").getState();
+    state.deserializeGeoJSON(geojson);
 
   
     // Serialize the GeoJSON to a string
@@ -280,11 +249,16 @@ export class Demo extends Component {
           <input id={C_ID_input_export} type="submit" value="export" />
           <input id={C_ID_get_geojson} type="submit" value="get" />
           <input id={C_ID_get_geojson_from_props} type="submit" value="get geojson from props" onClick={this.getGeoJsonFromProps}/>
+          
           <PopUp content={this.state.geoJSONString}/>
         </div>
         <div className="demo">
           <div className="code">
-      
+          <div id="copy-block-container">
+              <pre>
+                <code ref={this.copyBlockRef} className="json" />
+              </pre>
+            </div>
             <CopyBlock
               text={this.state.geoJSONString}
               language="json"

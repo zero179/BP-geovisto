@@ -18,7 +18,7 @@ const RightMenuAdminSmall = () => {
         <Link to="/admin/profile"><UserOutlined/> Profile</Link>
       </Menu.Item>
       <Menu.Item key="app"danger={true} >
-        <Link to="/"><PoweroffOutlined/> Logout</Link>
+        <PoweroffOutlined/> Logout
       </Menu.Item>
     </Menu>
   );

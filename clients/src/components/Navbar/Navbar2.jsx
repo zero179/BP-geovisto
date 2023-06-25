@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import LeftMenu from './LeftMenu'
-import RightMenu from './RightMenu'
+import LeftMenu from './LeftMenu';
+import RightMenu from './RightMenu';
 import { Drawer, Button } from 'antd';
 import "./navbarElements.css";
 
@@ -8,7 +8,8 @@ class Navbar2 extends Component {
 	state = {
 		current: 'mail',
 		visible: false
-	}
+	};
+
 	showDrawer = () => {
 		this.setState({
 			visible: true,
@@ -28,11 +29,13 @@ class Navbar2 extends Component {
 					<a href="/">GEOVISTO</a>
 				</div>
 				<div className="menuCon">
-					<div className="leftMenu">
-						<LeftMenu />
-					</div>
-					<div className="rightMenu">
-						<RightMenu />
+					<div className="menuItems">
+						<div className="leftMenu">
+							<LeftMenu />
+						</div>
+						<div className="rightMenu">
+							<RightMenu />
+						</div>
 					</div>
 					<Button className="barsMenu" type="text" onClick={this.showDrawer}>
 						<span className="barsBtn"></span>
@@ -48,7 +51,6 @@ class Navbar2 extends Component {
 						<LeftMenu />
 						<RightMenu />
 					</Drawer>
-
 				</div>
 			</nav>
 		);

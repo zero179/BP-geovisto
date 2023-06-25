@@ -10,6 +10,7 @@ const PopUp = (props) => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+
   return (
     <>
       <Button type="primary" onClick={showModal}>
@@ -17,7 +18,8 @@ const PopUp = (props) => {
       </Button>
       <Modal title="Basic Modal" open={isModalOpen} onOk={async () => {
             try {
-              await onAddFiles({file_id: 41, filename: fileName,content: props.content, user_id: 10  })
+             
+              await onAddFiles({ filename: fileName,content: props.content, user_id: 10  })
             } catch (error) {
               console.log(error)
             }

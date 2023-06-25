@@ -1530,6 +1530,8 @@ LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
 OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
+/* global Reflect, Promise */
+
 
 function __awaiter(thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -1957,7 +1959,10 @@ class DrawingLayerToolState extends geovisto.LayerToolState {
      */
     deserializeGeoJSON(geojson) {
         const sidebarState = this.tool.getMapForm().getState();
-        // console.log({ geojson });
+        console.log({ geojson });
+        console.log("hello world");
+        console.log("prve");
+        console.log("simon");
         if (geojson.type === "FeatureCollection" && geojson.features) {
             geojson.features
                 .sort((a, b) => sortReverseAlpha(Number(a.geometry.type), Number(b.geometry.type)))
@@ -1999,7 +2004,9 @@ class DrawingLayerToolState extends geovisto.LayerToolState {
                     if (result.dragging)
                         result.dragging.disable();
                     this.initMappedMarkersToVertices(lType, result, f.properties);
+                    console.log("Result before adding layer:", result);
                     this.addLayer(result);
+                    console.log("Layer added:", result);
                 }
             });
         }

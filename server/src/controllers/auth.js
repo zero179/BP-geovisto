@@ -1,6 +1,6 @@
 const db = require('../db')
 const { hash } = require('bcryptjs')
-const { sign } = require('jsonwebtoken')
+const { sign, JsonWebTokenError } = require('jsonwebtoken')
 const { SECRET } = require('../constants')
 
 exports.getUsers = async (req, res) => {
@@ -69,16 +69,24 @@ exports.files = async (req, res, user_id, file_id) => {
 */
 
 exports.files = async (req, res) => {
-  const { file_id , filename , content, user_id } = req.body
+  const { filename , content } = req.body
+  const token = req.cookie;
+  console.log("token je: ", token)
   try {
+    console.log("user_id:", user_id); // Log the user_id
+    const file_id_seq = await db.query(
+      "SELECT nextval('public.files_file_id_seq')"
+    );
+    const next_file_id = file_id_seq.rows[0].nextval;
+    
   await db.query('insert into files(file_id, filename , content ) values ($1 , $2, $3)', [
-      file_id,
+    next_file_id,
       filename,
       content,
   ])
   await db.query(
     'INSERT INTO userFile (user_id, file_id, role) VALUES ($1, $2, $3)',
-    [user_id, file_id, 'owner']
+    [user_id, next_file_id, 'owner']
   );
 //   INSERT INTO files (filename, content)
 // VALUES ('test_file1.txt', 'Sample content 1'),
@@ -112,9 +120,9 @@ exports.getFiles = async (req, res) => {
   }
 }
 
+
 exports.login = async (req, res) => {
   let user = req.user
-
   let payload = {
     id: user.user_id,
     email: user.email,
@@ -126,6 +134,7 @@ exports.login = async (req, res) => {
     return res.status(200).cookie('token', token, { httpOnly: true }).json({
       success: true,
       message: 'Logged in succefully',
+      user_id: user.user_id,
     })
   } catch (error) {
     console.log(error.message)
@@ -134,6 +143,10 @@ exports.login = async (req, res) => {
     })
   }
 }
+
+exports.getCurrentUserId = () => {
+  return currentUserId;
+};
 
 exports.protected = async (req, res) => {
   try {

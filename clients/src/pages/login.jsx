@@ -5,11 +5,12 @@ import { useDispatch } from 'react-redux'
 import { authenticateUser } from '../redux/slices/authSlice'
 
 const Login = () => {
+  const [error, setError] = useState('');
   const [values, setValues] = useState({
     email: '',
     password: '',
   })
-  const [error, setError] = useState(false)
+  //const [error, setError] = useState(false)
 
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value })
@@ -17,18 +18,28 @@ const Login = () => {
 
   const dispatch = useDispatch()
   const onSubmit = async (e) => {
-    e.preventDefault()
-
+    e.preventDefault();
+    
     try {
-      await onLogin(values)
-      dispatch(authenticateUser())
+      console.log(localStorage, "local")
+      await onLogin(values);
+      dispatch(authenticateUser());
+       // Check if the entered credentials are for the admin
+    
 
-      localStorage.setItem('isAuth', 'true')
+      localStorage.setItem('isAuth', 'true');
+      if (values.email === 'admin.admin@gmail.com' && values.password === 'adminheslo') {
+        // Set a flag in local storage to indicate admin login
+        localStorage.setItem('isAdmin', 'true');
+      }
+      else {
+        localStorage.setItem('isAdmin', 'false');
+      }
     } catch (error) {
-      console.log(error.response.data.errors[0].msg)
-      setError(error.response.data.errors[0].msg)
+      console.log(error.response.data.errors[0].msg);
+      setError(error.response.data.errors[0].msg);
     }
-  }
+  };
 
   return (
     <Layout>
@@ -68,7 +79,7 @@ const Login = () => {
         </div>
 
         <div style={{ color: 'red', margin: '10px 0' }}>{error}</div>
-
+        
         <button type='submit' className='btn btn-primary'>
           Submit
         </button>
