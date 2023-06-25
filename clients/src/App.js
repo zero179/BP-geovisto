@@ -27,7 +27,19 @@ const PrivateRoutes = () => {
 
 const RestrictedRoutes = () => {
   const { isAuth } = useSelector((state) => state.auth)
-  return <>{!isAuth ? <Outlet/>  : <Navigate to='/user'/> }</>
+  const isAdmin = localStorage.getItem('isAdmin') === 'true';
+
+  return (
+    <>
+      {!isAuth ? (
+        <Outlet />
+      ) : isAdmin ? (
+        <Navigate to='/admin' />
+      ) : (
+        <Navigate to='/user' />
+      )}
+    </>
+  );
   
 }
 
@@ -41,7 +53,7 @@ const App = () => {
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/user/geojsons' element={<UserGeoJsonList />} />
           <Route path="/user" element={<User />} />
-          <Route path="/admin" element={<User />} />
+          <Route path="/admin" element={<Admin />} />
         </Route>
 
         <Route element={<RestrictedRoutes />}>

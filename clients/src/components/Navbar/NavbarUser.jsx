@@ -6,8 +6,6 @@ import { UserOutlined } from '@ant-design/icons';
 import RightMenuAdminSmall from './RightMenuAdminSmall'
 import "./navbarElements.css";
 import RightMenuUser from './NavbarUserRight';
-import LogoutButton from './LogoutButton';
-
 
 class NavbarUser extends Component {
 	state = {
@@ -34,9 +32,7 @@ class NavbarUser extends Component {
 				<div className="logo">
 					<a href="/">GEOVISTO</a>
 				</div>
-                <div className="button">
-                    <LogoutButton/>
-                </div>
+               
 				<div className="menuCon">
 					
 					<div className="rightMenu">
