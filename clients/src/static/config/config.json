@@ -235,7 +235,7 @@
 		{
 			"type": "geovisto-tool-layer-drawing",
 			"id": "geovisto-tool-layer-drawing",
-			"enabled": false,
+			"enabled": true,
 			"layerName": "GeoJSON creator"
 		},
 		{
